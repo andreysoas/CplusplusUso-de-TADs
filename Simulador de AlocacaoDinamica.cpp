@@ -1,6 +1,6 @@
 #include<iostream>
 #include<new>
-//NOHS S” S√O ALOCADOS QUANDO OCORRER UMA DESALOCA«√O
+//NOHS S√ì S√ÉO ALOCADOS QUANDO OCORRER UMA DESALOCA√á√ÉO
 using std::cout;
 using std::nothrow;
 
@@ -37,7 +37,7 @@ struct SimulAloc{
 				if(n->prox->tam >= tam){
 				inicio=n->prox->tam+n->prox->ini - tam;
 				n->prox->tam=n->prox->tam-tam;
-				if(n->prox->tam==0){//se toda memÛria for usada
+				if(n->prox->tam==0){//se toda mem√≥ria for usada
 					Noh *u=n->prox;
 					n->prox=n->prox->prox;
 					delete u;
@@ -60,16 +60,16 @@ struct SimulAloc{
 		prim=u;
 	}else{
 	for(;n!=nullptr;n=n->prox){              
-		if(ini+tam <= n->ini){//t· atr·s
+		if(ini+tam <= n->ini){//t√° atr√°s
 			if(ini+tam < n->ini){
 				Noh *u=new(nothrow) Noh;if(u==nullptr)return true;
 				u->ini=ini;u->tam=tam;u->prox=n;
 				if(n==prim)prim=u;
-			}else{//È igual - vai emendar
+			}else{//√© igual - vai emendar
 				n->ini=ini;n->tam=n->tam + tam;
 			}
 			
-		}else if(ini>=n->ini+n->tam){//t· colado em sequÍncia
+		}else if(ini>=n->ini+n->tam){//t√° colado em sequ√™ncia
 			if(ini > n->ini+n->tam){
 				if(n->prox!=nullptr){
 					if(ini+tam==n->prox->ini){
@@ -79,14 +79,14 @@ struct SimulAloc{
 						Noh *u=new(nothrow) Noh;if(u==nullptr)return true;
 						u->ini=ini;u->tam=tam;u->prox=n->prox;n->prox=u;
 					}else{
-						continue; //se passar daqui, ent„o n„o chega no primeiro if
+						continue; //se passar daqui, ent√£o n√£o chega no primeiro if
 					}
 				}else{
 					Noh *u=new(nothrow) Noh;if(u==nullptr)return true;
 					u->ini=ini;u->tam=tam;u->prox=n->prox;n->prox=u;
 				}
 			}else{
-				if(n->prox!=nullptr){					//VOU EMENDAR, mas checar o prÛximo
+				if(n->prox!=nullptr){					//VOU EMENDAR, mas checar o pr√≥ximo
 					if(ini+tam==n->prox->ini){
 						//n e prox viram um noh
 						Noh *u=n->prox;
@@ -128,8 +128,6 @@ struct SimulAloc{
 		}
 };
 /*	
-	Ti5j2h0pEezQWKvP28hzZEfh33mIVX7W6LA6WVFrkWAbVGUjrkVHWBnqi4ay
-
 	
 	void printar(){
 		for(Noh *n=prim;n!=nullptr;n=n->prox){
@@ -137,6 +135,8 @@ struct SimulAloc{
 		}
 	}
 */
+
+/*
 int main(){
 	SimulAloc s;
 	s.inicializar(100,150);
@@ -156,3 +156,4 @@ int main(){
 	//s.terminar();
 	//s.printar();
 }
+*/
